@@ -54,7 +54,7 @@ class ID_TA_Module:
         )
 
     def run_introspective_loop(self, post: str, ta_name: str, ta_def: str):
-        """Resolves 'Uncertain' status via Q/A loop[cite: 347]."""
+        """Resolves 'Uncertain' status via Q/A loop."""
         print(f"\n--- [ID-TA] Running Introspective Loop for {ta_name} ---")
         
         # Simplified simulation of the loop for this implementation
@@ -83,7 +83,7 @@ class ID_TA_Module:
         crew = Crew(agents=[self.investigator], tasks=[task])
         result = crew.kickoff()
         
-        # Handle Uncertainty [cite: 342]
+        # Handle Uncertainty
         if result.status == "Uncertain":
             clarification = self.run_introspective_loop(post, ta_name, ta_def)
             result.rationale += f" | QA Resolution: {clarification}"
@@ -106,7 +106,7 @@ class ID_TA_Module:
         
         # (Redundancy check via utils.py happens in main.py logic)
 
-        # Step 3: Debate (Champion vs Critic -> Judge) [cite: 456]
+        # Step 3: Debate (Champion vs Critic -> Judge) 
         task_debate = Task(
             description=f"Debate validity of TA '{candidate.name}': {candidate.definition} for post: '{post}'. Champion defends, Critic attacks.",
             agent=self.judge, # In CrewAI, we can chain the context or use a hierarchical crew
