@@ -3,7 +3,7 @@ from schemas import CommunicationFrame
 
 class Art_FRAME_Module:
     def __init__(self):
-        # 1. Articulation Agent [cite: 625]
+        # 1. Articulation Agent 
         self.articulator = Agent(
             role='Articulation Agent',
             goal='Articulate the Communication Frame (CF) evoked in the post.',
@@ -11,7 +11,7 @@ class Art_FRAME_Module:
             verbose=True
         )
 
-        # 2. Explainability Agent (Reconstruction Test) [cite: 721]
+        # 2. Explainability Agent (Reconstruction Test) 
         self.explainer = Agent(
             role='Explainability Agent',
             goal='Validate CFs by reconstructing them from their rationale.',
@@ -30,7 +30,7 @@ class Art_FRAME_Module:
             output_pydantic=CommunicationFrame
         )
         
-        # Step 2: Validate (Reconstruction) [cite: 722]
+        # Step 2: Validate (Reconstruction) 
         # We pass the Rationale from the previous task, but NOT the frame text, to see if it can be reconstructed.
         task_val = Task(
             description=f"Using ONLY the rationale from the previous task, reconstruct the Communication Frame text.",
