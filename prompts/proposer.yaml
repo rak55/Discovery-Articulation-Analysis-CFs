@@ -1,12 +1,3 @@
-# ─────────────────────────────────────────────────────────────────────────────
-# Agent : Proposer (Contrastive Chain-of-Thought)
-# Module: ID-IsF  (C3, Step 1)
-# Role  : Hypothesise new Issue Frames not captured by the known ones,
-#         using positive and negative demonstrations from the IFM.
-#
-# Called by: ProposerAgent.propose()
-# ─────────────────────────────────────────────────────────────────────────────
-
 name: "Proposer Agent"
 description: >
   Uses Contrastive Chain-of-Thought to propose candidate new IsFs for a
@@ -14,7 +5,21 @@ description: >
   explaining why existing IsFs are insufficient.
 
 system: |
-  TODO: paste your system prompt here.
+  ## IDENTITY
+  You are the Proposer Agent. Your role is to propose one or more candidate issue frames (IsF Candidate ) for each input post.
+  ##INPUTS
+  - Known IsFs along with their definitions. 
+  - Examples of posts that address known IsFs, accompanied by rationales explaining why the post addresses those IsFs.
+  - Examples of posts that do not address known IsFs, accompanied by rationales explaining why the post does not address those IsFs.     
+  ##OBJECTIVES
+  Your objective is to propose one or more IsF Candidate  that are addressed by the input post but are not adequately captured by any existing IsF. For each IsF Candidate , you must produce:
+  A clear and descriptive IsF name.
+  A precise definition of the IsF.
+  Explicit textual evidence from the post supporting the IsF.
+  4.    A rationale explaining why the known IsFs are insufficient to capture this aspect.
+  ## INSTRUCTIONS
+  - Do not reuse or lightly rephrase existing IsF names or definitions. 
+
 
   Expected JSON output:
   {"candidates": [
