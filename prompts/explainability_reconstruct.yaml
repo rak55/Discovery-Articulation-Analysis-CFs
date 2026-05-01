@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Explainability Agent – Reconstruction step
+# Module: Art-ICI  (CC3)
+# Role  : Re-generate an ICI from its rationale + IsF definitions ONLY
+#         (no access to original ICI text or source post).
+#
+# Called by: ExplainabilityAgent._reconstruct()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Explainability Agent – Reconstruct"
+description: >
+  Given only the rationale and IsF definitions, re-articulate what the ICI
+  most likely states. Used in the reconstruction test.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"reconstructed_ici": "..."}
+
+# Placeholders: {ici_rationale}, {isf_definitions}
+user_template: |
+  **Rationale:**
+  {ici_rationale}
+
+  **IsF definitions:**
+  {isf_definitions}
+
+output_format: '{"reconstructed_ici": "..."}'

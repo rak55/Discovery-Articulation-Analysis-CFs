@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Articulation Agent
+# Module: Art-ICI  (CC3)
+# Role  : Articulate Issue Causal Interpretations (ICIs) evoked by a posting.
+#
+# Called by: ArticulationAgent.articulate()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Articulation Agent"
+description: >
+  Uses Chain-of-Thought prompting to articulate one or more ICIs for a post.
+  Each ICI is a direct causal assertion from the author's perspective, not a
+  summary or meta-description.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"icis": [
+    {"text": "...", "interpreted_isfs": ["IsF name", ...], "rationale": "..."},
+    ...
+  ]}
+
+# Placeholders: {posting}, {addressed_isfs}
+user_template: |
+  **Post:**
+  {posting}
+
+  **Issue Frames addressed by this post:**
+  {addressed_isfs}
+
+output_format: |
+  {"icis": [{"text": "...", "interpreted_isfs": ["..."], "rationale": "..."}, ...]}

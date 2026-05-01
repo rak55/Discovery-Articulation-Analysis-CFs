@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Paraphrase-Police Agent
+# Module: Art-ICI  (CC3)
+# Role  : Group ICIs into paraphrase clusters; one per cluster is kept.
+#
+# Called by: ParaphrasePoliceAgent.deduplicate()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Paraphrase-Police Agent"
+description: >
+  Identifies which ICIs (from the same IsF group) are paraphrases of each
+  other. Returns groups of 0-based indices; the first in each group is kept.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"groups": [[0, 3], [1], [2, 5], ...]}
+
+# Placeholders: {ici_list}  (numbered list: "0. <ICI text>\n1. <ICI text>\n...")
+user_template: |
+  **ICIs to check for paraphrases:**
+  {ici_list}
+
+output_format: '{"groups": [[0, 3], [1], [2, 5], ...]}'

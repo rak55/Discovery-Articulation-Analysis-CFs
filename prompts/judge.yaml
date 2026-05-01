@@ -1,0 +1,47 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Judge (Multi-Agent Debate)
+# Module: ID-IsF  (C3, Step 3)
+# Role  : Issue ACCEPT / REJECT / CORRECT verdict on the candidate IsF.
+#
+# Called by: JudgeAgent.judge()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Judge Agent"
+description: >
+  Sole decision-maker. Issues an early verdict when arguments are decisive.
+  May also CORRECT a candidate by refining its name or definition.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {
+    "verdict": "accept|reject|correct",
+    "comment": "...",
+    "refined_name": null,
+    "refined_definition": null
+  }
+
+# Placeholders: {candidate_name}, {candidate_definition},
+#               {posting}, {known_isfs},
+#               {champion_argument}, {critic_argument}
+user_template: |
+  **Candidate IsF:**
+  Name: {candidate_name}
+  Definition: {candidate_definition}
+
+  **Post:**
+  {posting}
+
+  **Known IsFs:**
+  {known_isfs}
+
+  **Champion's argument:**
+  {champion_argument}
+
+  **Critic's argument:**
+  {critic_argument}
+
+output_format: |
+  {"verdict": "accept|reject|correct", "comment": "...",
+   "refined_name": null, "refined_definition": null}

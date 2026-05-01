@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Question Generator (Introspective Q/A Loop)
+# Module: ID-IsF  (C1)
+# Role  : Generate targeted Yes/No questions that test IsF applicability.
+#
+# Called by: IntrospectiveQALoop._generate_question()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Question Generator Agent"
+description: >
+  Generates a precise Yes/No question grounded strictly in the IsF definition
+  and the post text. Refines if the previous answer was CANNOT ANSWER.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"question": "..."}
+
+# Placeholders: {posting}, {isf_name}, {isf_definition},
+#               {prior_rationale}, {qa_history}, {feedback}
+user_template: |
+  **Posting:**
+  {posting}
+
+  **Issue Frame – {isf_name}:**
+  {isf_definition}
+
+  **Investigator's prior rationale:**
+  {prior_rationale}
+
+  **Previous Q/A pairs:**
+  {qa_history}
+
+  **Feedback:**
+  {feedback}
+
+output_format: '{"question": "..."}'

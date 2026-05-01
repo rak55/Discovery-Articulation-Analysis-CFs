@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Answer Generator (Introspective Q/A Loop)
+# Module: ID-IsF  (C1)
+# Role  : Answer a Yes/No question about IsF applicability using only
+#         explicit post evidence.
+#
+# Called by: IntrospectiveQALoop._generate_answer()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Answer Generator Agent"
+description: >
+  Answers the Question Generator's question with yes / no / cannot_answer,
+  plus a rationale grounded strictly in the post text.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"answer": "yes|no|cannot_answer", "rationale": "..."}
+
+# Placeholders: {posting}, {isf_name}, {isf_definition}, {question}
+user_template: |
+  **Posting:**
+  {posting}
+
+  **Issue Frame – {isf_name}:**
+  {isf_definition}
+
+  **Question:**
+  {question}
+
+output_format: '{"answer": "yes|no|cannot_answer", "rationale": "..."}'

@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Investigator Resolver
+# Module: ID-IsF  (C1) and Art-ICI (C1)
+# Role  : Make a FINAL binary decision after reading Q/A-loop evidence.
+#         Called only when the base Investigator returned "uncertain".
+#
+# Called by: InvestigatorAgent._resolve_with_qa()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Investigator Resolver"
+description: >
+  Re-evaluates an uncertain (posting, IsF) pair after inspecting
+  the Q/A-loop evidence. Returns a binary applicable / not_applicable verdict.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"verdict": "applicable|not_applicable", "rationale": "..."}
+
+# Placeholders: {posting}, {isf_name}, {isf_definition},
+#               {prior_rationale}, {qa_evidence}
+user_template: |
+  **Posting:**
+  {posting}
+
+  **Issue Frame – {isf_name}:**
+  {isf_definition}
+
+  **Prior assessment:**
+  {prior_rationale}
+
+  **Clarifying Q/A evidence:**
+  {qa_evidence}
+
+output_format: '{"verdict": "applicable|not_applicable", "rationale": "..."}'

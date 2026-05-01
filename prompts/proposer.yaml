@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Proposer (Contrastive Chain-of-Thought)
+# Module: ID-IsF  (C3, Step 1)
+# Role  : Hypothesise new Issue Frames not captured by the known ones,
+#         using positive and negative demonstrations from the IFM.
+#
+# Called by: ProposerAgent.propose()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Proposer Agent"
+description: >
+  Uses Contrastive Chain-of-Thought to propose candidate new IsFs for a
+  posting. Each candidate includes a name, definition, evidence, and rationale
+  explaining why existing IsFs are insufficient.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"candidates": [
+    {"name": "...", "definition": "...", "evidence": "...", "rationale": "..."},
+    ...
+  ]}
+
+# Placeholders: {known_isfs}, {demonstrations}, {posting}
+user_template: |
+  **Known Issue Frames:**
+  {known_isfs}
+
+  **Demonstrations (positive and negative):**
+  {demonstrations}
+
+  **Post to analyse:**
+  {posting}
+
+output_format: |
+  {"candidates": [{"name": "...", "definition": "...", "evidence": "...", "rationale": "..."}, ...]}

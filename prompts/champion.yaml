@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent : Champion (Multi-Agent Debate)
+# Module: ID-IsF  (C3, Step 3)
+# Role  : Defend a candidate IsF on applicability and discriminant validity.
+#
+# Called by: ChampionAgent.argue()
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "Champion Agent"
+description: >
+  Rigorously defends the candidate IsF. Argues (a) it is genuinely addressed
+  by the post and (b) it is semantically distinct from all known IsFs.
+
+system: |
+  TODO: paste your system prompt here.
+
+  Expected JSON output:
+  {"argument": "..."}
+
+# Placeholders: {candidate_name}, {candidate_definition},
+#               {candidate_evidence}, {candidate_rationale},
+#               {posting}, {known_isfs}, {prior_critic}
+user_template: |
+  **Candidate IsF:**
+  Name: {candidate_name}
+  Definition: {candidate_definition}
+  Evidence from post: {candidate_evidence}
+  Rationale: {candidate_rationale}
+
+  **Post:**
+  {posting}
+
+  **Known IsFs:**
+  {known_isfs}
+
+  **Critic's previous argument:**
+  {prior_critic}
+
+output_format: '{"argument": "..."}'
