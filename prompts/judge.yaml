@@ -1,5 +1,3 @@
-
-
 name: "Judge Agent"
 description: >
   Sole decision-maker. Issues an early verdict when arguments are decisive.
